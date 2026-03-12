@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COLORS } from "@/lib/constants";
-
 import BackToTopArrowWrapper from "@/components/BackToTopArrowWrapper";
 
 export const metadata: Metadata = {
@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   keywords:
     "agribusiness, Ghana, cassava, oil palm, coconut, cocoa, Africa, industrial processing",
 };
-
 
 export default function RootLayout({
   children,
