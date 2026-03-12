@@ -24,12 +24,6 @@ const IconMail = () => (
     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
   </svg>
 );
-const IconGlobe = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-  </svg>
-);
 const IconSocial = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
@@ -79,8 +73,6 @@ const colHeadStyle: React.CSSProperties = {
   display: "block",
 };
 
-
-
 export default function Footer() {
   const contactItems = [
     { Icon: IconPin,     label: "Address", value: "#4 Terminalia Street,\nDansoman, Accra, Ghana" },
@@ -100,31 +92,7 @@ export default function Footer() {
   return (
     <footer style={{ background: COLORS.greenDark, color: COLORS.white, position: "relative" }}>
       <BackToTopArrowWrapper />
-      <style>{`
-        .back-to-top-arrow {
-          animation: fadein 0.5s;
-        }
-        @media (max-width: 900px) {
-          .back-to-top-arrow {
-            left: 12px;
-            bottom: 18px;
-            width: 40px;
-            height: 40px;
-          }
-        }
-        @media (max-width: 600px) {
-          .back-to-top-arrow {
-            left: 8px;
-            bottom: 12px;
-            width: 36px;
-            height: 36px;
-          }
-        }
-        @keyframes fadein {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-      `}</style>
+
       <style>{`
         .footer-grid {
           display: grid;
@@ -147,15 +115,17 @@ export default function Footer() {
           border: 1px solid rgba(255,255,255,0.08);
         }
         .footer-partner-divider {
-          width: 1px; height: 20px;
+          width: 1px;
+          height: 20px;
           background: rgba(255,255,255,0.2);
         }
         .footer-bottom {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: center;
-          flex-wrap: wrap;
-          gap: 16px;
+          gap: 10px;
+          text-align: center;
+          padding-top: 8px;
         }
         .footer-nav-link {
           color: rgba(255,255,255,0.65);
@@ -183,37 +153,27 @@ export default function Footer() {
           transition: color 0.2s;
         }
         .footer-commodity-link:hover { color: ${COLORS.gold}; }
-
-        /* ── TABLET (≤1024px): 2 columns ── */
-        @media (max-width: 1024px) {
-          .footer-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-          }
-          .footer-partners {
-            flex-direction: column;
-            gap: 12px;
-            text-align: center;
-          }
-          .footer-partner-divider { display: none; }
-          .footer-bottom {
-            flex-direction: column;
-            text-align: center;
-            gap: 10px;
-          }
+        .footer-credit-link {
+          color: ${COLORS.gold};
+          text-decoration: none;
+          font-weight: 700;
+          transition: color 0.2s;
         }
-
-        /* ── MOBILE (≤600px): 1 column ── */
+        .footer-credit-link:hover { color: #FF8C33; }
+        .footer-logo-link { display: inline-block; }
+        @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 1024px) {
+          .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+          .footer-partners { flex-direction: column; gap: 12px; text-align: center; }
+          .footer-partner-divider { display: none; }
+        }
         @media (max-width: 600px) {
-          .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 36px;
-          }
+          .footer-grid { grid-template-columns: 1fr; gap: 36px; }
           .footer-nav-link, .footer-commodity-link { font-size: 15px; }
         }
       `}</style>
 
-      {/* ── TOP GOLD ACCENT BAR ── */}
+      {/* ── TOP ACCENT BAR ── */}
       <div style={{ height: "5px", background: `linear-gradient(90deg, ${COLORS.gold}, ${COLORS.green}, ${COLORS.gold})` }} />
 
       {/* ── MAIN BODY ── */}
@@ -223,10 +183,11 @@ export default function Footer() {
 
           {/* ── BRAND ── */}
           <div>
-            <img src="/logo/logo.png" alt="Tru Seeds Africa Logo"
-              style={{ height: "70px", width: "auto", objectFit: "contain", marginBottom: "24px", display: "block" }} />
+            <Link href="/" className="footer-logo-link">
+              <img src="/logo/logo.png" alt="Tru Seeds Africa Logo" style={{ height: "70px", width: "auto", objectFit: "contain", marginBottom: "24px", display: "block" }} />
+            </Link>
             <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "16px", lineHeight: 1.9, fontFamily: "'Georgia', serif", margin: "0 0 20px", fontStyle: "italic" }}>
-              "Beyond Farming — We Are Building Industries."
+              &quot;Beyond Farming &mdash; We Are Building Industries.&quot;
             </p>
             <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "14px", lineHeight: 1.8, fontFamily: "'Plus Jakarta Sans', Arial, Helvetica, sans-serif", margin: "0 0 28px" }}>
               Premier industrial agribusiness and strategic consultancy firm dedicated to transforming
@@ -235,7 +196,7 @@ export default function Footer() {
             <div style={{ display: "inline-block", border: "2px solid #660099", padding: "2px" }}>
               <div style={{ border: "1px solid #660099", padding: "10px 20px" }}>
                 <span style={{ color: COLORS.gold, fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "Arial, sans-serif", fontWeight: 700 }}>
-                  Ghana · Africa · Global
+                  Ghana &middot; Africa &middot; Global
                 </span>
               </div>
             </div>
@@ -293,21 +254,20 @@ export default function Footer() {
 
         {/* ── BOTTOM BAR ── */}
         <div className="footer-bottom">
-          <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "14px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
-            © {new Date().getFullYear()} Tru Seeds Africa. All rights reserved. | Registered in Ghana.
+          <p style={{ color: "rgba(255,255,255,0.25)", fontSize: "15px", fontFamily: "Arial, sans-serif", margin: 0, letterSpacing: "2px", textTransform: "uppercase" }}>
+            Cultivating Wealth &middot; Processing the Future
           </p>
-          <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "13px", fontFamily: "Arial, sans-serif", margin: 0, letterSpacing: "2px", textTransform: "uppercase" }}>
-            Cultivating Wealth · Processing the Future
+          <p style={{ color: "rgba(255,255,255,1.50)", fontSize: "17px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
+            &copy; {new Date().getFullYear()} Tru Seeds Africa. All rights reserved. | Registered in Ghana.
           </p>
-          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0, textAlign: "center", width: "100%" }}>
-            Website Development by{" "}
-            <a href="https://www.celestialwebsolutions.net" target="_blank" rel="noopener noreferrer"
-              style={{ color: COLORS.gold, textDecoration: "none", fontWeight: 700 }}>
-              Celestial Web Solutions
-            </a>
+          <p style={{ color: "rgba(255,255,255,4.5)", fontSize: "17px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
+            Website Development & Design by{" "}
+            <a href="https://www.celestialwebsolutions.net" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Celestial Web Solutions</a>
           </p>
         </div>
+
       </div>
+      <BackToTopArrowWrapper />
     </footer>
   );
 }

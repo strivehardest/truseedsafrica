@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COLORS } from "@/lib/constants";
-import BackToTopArrowWrapper from "@/components/BackToTopArrowWrapper";
 
 export const metadata: Metadata = {
   title: "Tru Seeds Africa | Ghana Agribusiness, Industrial Processing & Consulting",

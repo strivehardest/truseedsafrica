@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import HeroSection from "@/components/sections/HeroSection";
 import CTASection from "@/components/CTASection";
 import DifferentiatorSection from "@/components/sections/DifferentiatorSection";
@@ -9,7 +8,6 @@ import PillarCard from "@/components/ui/PillarCard";
 import { COLORS, PILLARS, COMMODITIES } from "@/lib/constants";
 import Link from "next/link";
 
-// Commodity SVG icons
 const CassavaIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 2C8 6 6 10 8 14c1 2 3 4 4 8"/><path d="M12 2c4 4 6 8 4 12-1 2-3 4-4 8"/>
@@ -40,164 +38,153 @@ const commodityIcons = [CassavaIcon, PalmIcon, CoconutIcon, CocoaIcon];
 const commodityAccents = ["#B8860B", "#1F6B1F", "#2C4A52", "#2D4A1E"];
 
 const pageStyles = `
-  /* ── Section padding ── */
-  .section-pad {
-    padding: 120px 40px;
-  }
+  .section-pad { padding: 120px 40px; }
+  .home-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .commodities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .quote-card { padding: 56px 48px; }
+  .gold-tag { position: absolute; bottom: -18px; left: 5vw; background: #D4A017; padding: 10px 40px; border-radius: 2px; }
+  .about-card { width: 100%; background: #fff; border-radius: 8px; box-shadow: 0 2px 24px rgba(0,0,0,0.06); overflow: hidden; }
+  .about-card-header { background: #1F6B1F; padding: 32px 36px; }
+  .about-card-body { padding: 36px; }
+  .about-divider { height: 1px; background: #f0f0f0; margin: 28px 0; }
+  .about-tag { display: inline-flex; align-items: center; gap: 8px; background: #f8f5ec; border-left: 3px solid #D4A017; padding: 10px 16px; border-radius: 0 4px 4px 0; margin-top: 20px; }
+  .about-cta-row { display: flex; align-items: center; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
 
-  /* ── About grid ── */
-  .home-about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  /* ── Commodities grid ── */
-  .commodities-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-
-  /* ── Quote card inner padding ── */
-  .quote-card {
-    padding: 56px 48px;
-  }
-
-  /* ── Gold tag ── */
-  .gold-tag {
-    position: absolute;
-    bottom: -18px;
-    left: 5vw;
-    background: ${COLORS.gold};
-    padding: 10px 40px;
-    border-radius: 2px;
-  }
-
-  /* ── Tablet ── */
   @media (max-width: 900px) {
     .section-pad { padding: 80px 32px; }
     .home-about-grid { grid-template-columns: 1fr; gap: 48px; }
     .commodities-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .quote-card { padding: 40px 32px; }
+    .about-card-header { padding: 28px; }
+    .about-card-body { padding: 28px; }
   }
-
-  /* ── Mobile ── */
   @media (max-width: 600px) {
     .section-pad { padding: 60px 20px; }
-    .home-about-grid { gap: 60px; }
     .commodities-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .quote-card { padding: 32px 24px; }
     .gold-tag { padding: 10px 24px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+    .about-card-header { padding: 24px 20px; }
+    .about-card-body { padding: 24px 20px; }
   }
-
-  /* ── Small mobile ── */
   @media (max-width: 400px) {
     .section-pad { padding: 48px 16px; }
     .commodities-grid { grid-template-columns: 1fr; gap: 8px; }
-    .home-about-grid { gap: 48px; }
   }
 `;
 
 export default function HomePage() {
   return (
     <>
-      <Head>
-        <title>Tru Seeds Africa | Ghana Agribusiness, Industrial Processing & Consulting</title>
-        <meta name="description" content="Tru Seeds Africa is a premier industrial agribusiness and strategic consultancy firm transforming African agriculture into a high-yield, industrial-grade economic engine." />
-        <meta name="keywords" content="Tru Seeds Africa, agribusiness, Ghana, cassava, oil palm, coconut, cocoa, Africa, industrial processing, agriculture, consulting, value chain, circular economy" />
-      </Head>
       <style>{pageStyles}</style>
       <HeroSection />
 
       {/* ── ABOUT SNAPSHOT ── */}
-      <section id="about" className="section-pad" style={{ background: COLORS.white }}>
+      <section id="about" className="section-pad" style={{ background: COLORS.offWhite }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <AnimatedSection>
+            <SectionHeader
+              eyebrow="Who We Are"
+              title="About Tru Seeds Africa"
+              subtitle="A premier industrial agribusiness and strategic consultancy firm dedicated to transforming African agriculture."
+            />
+          </AnimatedSection>
+
+          <AnimatedSection delay={100}>
             <div className="home-about-grid">
-              {/* Left: overview card */}
-              <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-                <div style={{ maxWidth: 700, width: "100%", margin: "0 auto", background: "#fff", borderRadius: 8, boxShadow: "0 2px 16px rgba(0,0,0,0.03)", padding: "48px 32px 40px" }}>
-                  <div style={{ color: COLORS.gold, fontSize: 14, letterSpacing: 3, textTransform: "uppercase", fontWeight: 700, marginBottom: 18 }}>
+
+              {/* Left: structured company overview card */}
+              <div className="about-card">
+                <div className="about-card-header">
+                  <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>
                     Company Overview
                   </div>
-                  <h2 style={{ fontSize: "clamp(28px, 5vw, 54px)", color: COLORS.green, fontWeight: 800, margin: 0, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>
-                    Building Africa's <span style={{ color: COLORS.charcoal }}>Industrial</span> Future
+                  <h2 style={{ fontSize: "clamp(22px, 4vw, 34px)", color: "#fff", fontWeight: 800, margin: 0, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.2 }}>
+                    Building Africa's <span style={{ color: COLORS.gold }}>Industrial</span> Future
                   </h2>
-                  <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 2vw, 18px)", margin: "28px 0 0", lineHeight: 1.7, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
-                    TSA bridges the gap between primary agricultural production and global industrial demand — integrating Ag-Tech, circular economy principles, and strategic value-chain architecture.
+                </div>
+
+                <div className="about-card-body">
+                  <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 1.8vw, 17px)", lineHeight: 1.85, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                    TSA bridges the gap between primary agricultural production and global industrial demand — integrating Ag-Tech, circular economy principles, and strategic value-chain architecture to create lasting economic impact across Africa.
                   </p>
-                  <div style={{ margin: "40px 0 0" }}>
-                    <div style={{ color: COLORS.gold, fontSize: 13, letterSpacing: 3, textTransform: "uppercase", fontWeight: 700, marginBottom: 10 }}>
-                      Company Profile
-                    </div>
-                    <h3 style={{ fontSize: "clamp(16px, 4vw, 26px)", color: COLORS.green, fontWeight: 800, margin: 0, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>
-                      Full Company Profile
-                    </h3>
-                    <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(14px, 2vw, 16px)", margin: "18px 0 0", lineHeight: 1.6, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
-                      Learn more about Tru Seeds Africa's mission, vision, and leadership.
-                    </p>
-                    <div style={{ display: "inline-block", border: `2px solid ${COLORS.purple}`, padding: "2px", margin: "32px 0 24px" }}>
-                      <div style={{ border: `1px solid ${COLORS.purple}`, padding: "9px 16px" }}>
-                        <span style={{ color: COLORS.gold, fontSize: "clamp(10px, 2vw, 12px)", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
-                          Beyond Farming — We Are Building Industries
-                        </span>
+
+                  <div className="about-divider" />
+
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: 24 }}>
+                    {[
+                      { label: "Headquarters", value: "Accra, Ghana" },
+                      { label: "Focus", value: "Industrial Agribusiness" },
+                      { label: "Commodities", value: "4 Core Crops" },
+                      { label: "Framework", value: "6 Strategic Pillars" },
+                    ].map(({ label, value }) => (
+                      <div key={label} style={{ padding: "12px 16px", background: COLORS.offWhite, borderRadius: 4 }}>
+                        <div style={{ color: COLORS.gold, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 4 }}>{label}</div>
+                        <div style={{ color: COLORS.green, fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>{value}</div>
                       </div>
-                    </div>
-                    <div style={{ marginTop: 10 }}>
-                      <CTASection
-                        theme="white"
-                        title="Discover Tru Seeds Africa"
-                        agriElement={false}
-                        buttons={[
-                          { label: "View About Page", href: "/about", variant: "primary" }
-                        ]}
-                      />
-                    </div>
+                    ))}
+                  </div>
+
+                  <div className="about-tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style={{ color: COLORS.charcoal, fontSize: "clamp(12px, 1.5vw, 14px)", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600, letterSpacing: 1 }}>
+                      Beyond Farming — We Are Building Industries
+                    </span>
+                  </div>
+
+                  <div className="about-cta-row">
+                    <Link href="/about" style={{
+                      background: COLORS.green, color: "#fff",
+                      padding: "13px 28px", textDecoration: "none",
+                      fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700,
+                      fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase",
+                      borderRadius: "2px", display: "inline-block",
+                    }}>
+                      View Full Profile
+                    </Link>
+                    <Link href="/pillars" style={{
+                      border: `2px solid ${COLORS.green}`, color: COLORS.green,
+                      padding: "11px 24px", textDecoration: "none",
+                      fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700,
+                      fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase",
+                      borderRadius: "2px", display: "inline-block",
+                    }}>
+                      Our Pillars
+                    </Link>
                   </div>
                 </div>
               </div>
 
               {/* Right: quote card */}
-              <div style={{ position: "relative", paddingBottom: "24px" }}>
-                <div
-                  className="quote-card"
-                  style={{
-                    background: COLORS.greenDark,
-                    borderRadius: "2px",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
+              <div style={{ position: "relative", paddingBottom: "32px" }}>
+                <div className="quote-card" style={{ background: COLORS.greenDark, borderRadius: "2px", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: 0, right: 0, width: "80px", height: "80px", background: COLORS.gold, opacity: 0.15, clipPath: "polygon(100% 0, 0 0, 100% 100%)" }} />
                   <div style={{ position: "absolute", bottom: 0, left: 0, width: "60px", height: "3px", background: COLORS.gold }} />
-
                   <svg width="36" height="28" viewBox="0 0 36 28" fill={COLORS.gold} opacity={0.3} style={{ marginBottom: "20px" }}>
                     <path d="M0 28V16C0 7.163 5.163 1.6 15.489 0L16.8 2.8C11.2 4.2 8.4 7.233 8.4 11.9H14V28H0ZM22 28V16C22 7.163 27.163 1.6 37.489 0L38.8 2.8C33.2 4.2 30.4 7.233 30.4 11.9H36V28H22Z"/>
                   </svg>
-
-                  <blockquote style={{ color: COLORS.white, fontSize: "clamp(16px, 2.5vw, 22px)", fontStyle: "italic", lineHeight: 1.7, margin: "0 0 32px", fontFamily: "'Georgia', serif" }}>
+                  <blockquote style={{ color: COLORS.white, fontSize: "clamp(17px, 2.5vw, 23px)", fontStyle: "italic", lineHeight: 1.7, margin: "0 0 24px", fontFamily: "'Georgia', serif" }}>
                     Beyond Farming — We Are Building Industries.
                   </blockquote>
+                  <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "clamp(14px, 1.8vw, 16px)", lineHeight: 1.8, margin: "0 0 32px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                    Our vision is to position Africa as a global industrial agribusiness powerhouse — not just a supplier of raw materials, but a manufacturer, processor, and exporter of finished goods.
+                  </p>
                   <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: "24px" }}>
-                    <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: "15px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>Ransford Aleke</div>
-                    <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", marginTop: "4px" }}>Founder & Chief Executive Officer</div>
+                    <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: "16px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>Ransford Aleke</div>
+                    <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", marginTop: "4px" }}>Founder & Chief Executive Officer</div>
                   </div>
                 </div>
-
-                {/* Gold tag */}
                 <div className="gold-tag">
                   <div style={{ color: COLORS.greenDark, fontWeight: 800, fontSize: "12px", fontFamily: "'Fira Sans', Arial, sans-serif", letterSpacing: "1px" }}>DANSOMAN, ACCRA · GHANA</div>
                 </div>
               </div>
+
             </div>
           </AnimatedSection>
         </div>
       </section>
 
       {/* ── PILLARS ── */}
-      <section id="pillars" className="section-pad" style={{ background: COLORS.offWhite }}>
+      <section id="pillars" className="section-pad" style={{ background: COLORS.white }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <AnimatedSection>
             <SectionHeader
@@ -206,7 +193,6 @@ export default function HomePage() {
               subtitle="Every project is rooted in primary production and scaled through industrial processing, mechanization, and global trade strategy."
             />
           </AnimatedSection>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(320px, 100%), 1fr))", gap: "24px", alignItems: "start" }}>
             {PILLARS.map((p, i) => (
               <AnimatedSection key={p.num} delay={i * 60}>
@@ -214,7 +200,6 @@ export default function HomePage() {
               </AnimatedSection>
             ))}
           </div>
-
           <div style={{ textAlign: "center", marginTop: "52px", position: "relative", zIndex: 1 }}>
             <Link href="/pillars" style={{
               border: `2px solid ${COLORS.green}`, color: COLORS.green,
@@ -228,12 +213,11 @@ export default function HomePage() {
       </section>
 
       {/* ── COMMODITIES ── */}
-      <section className="section-pad" style={{ background: COLORS.white }}>
+      <section className="section-pad" style={{ background: COLORS.offWhite }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <AnimatedSection>
             <SectionHeader eyebrow="What We Grow" title="Strategic Commodities" />
           </AnimatedSection>
-
           <div className="commodities-grid">
             {COMMODITIES.map((c, i) => {
               const Icon = commodityIcons[i];
@@ -241,41 +225,23 @@ export default function HomePage() {
                 <AnimatedSection key={c.name} delay={i * 80}>
                   <div
                     style={{
-                      background: commodityAccents[i],
-                      borderRadius: "2px",
+                      background: commodityAccents[i], borderRadius: "2px",
                       padding: "clamp(24px, 4vw, 48px) clamp(16px, 3vw, 28px) clamp(20px, 3vw, 36px)",
-                      textAlign: "center",
-                      transition: "transform 0.3s, box-shadow 0.3s",
-                      height: "100%",
-                      boxSizing: "border-box",
-                      position: "relative",
-                      overflow: "hidden",
+                      textAlign: "center", transition: "transform 0.3s, box-shadow 0.3s",
+                      height: "100%", boxSizing: "border-box", position: "relative", overflow: "hidden",
                     }}
-                    onMouseEnter={e => {
-                      (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)";
-                      (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 40px rgba(0,0,0,0.2)";
-                    }}
-                    onMouseLeave={e => {
-                      (e.currentTarget as HTMLElement).style.transform = "none";
-                      (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                    }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 40px rgba(0,0,0,0.2)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "none"; (e.currentTarget as HTMLElement).style.boxShadow = "none"; }}
                   >
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: COLORS.gold }} />
-                    <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}>
-                      <Icon />
-                    </div>
-                    <h3 style={{ color: COLORS.white, fontSize: "clamp(14px, 3vw, 20px)", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 700, margin: "0 0 12px" }}>
-                      {c.name}
-                    </h3>
-                    <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(11px, 2vw, 13px)", lineHeight: 1.7, margin: 0, fontFamily: "Arial, sans-serif" }}>
-                      {c.desc}
-                    </p>
+                    <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}><Icon /></div>
+                    <h3 style={{ color: COLORS.white, fontSize: "clamp(15px, 3vw, 20px)", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 700, margin: "0 0 12px" }}>{c.name}</h3>
+                    <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(13px, 2vw, 15px)", lineHeight: 1.75, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{c.desc}</p>
                   </div>
                 </AnimatedSection>
               );
             })}
           </div>
-
           <div style={{ textAlign: "center", marginTop: "52px" }}>
             <Link href="/commodities" style={{
               border: `2px solid ${COLORS.green}`, color: COLORS.green,
@@ -289,6 +255,7 @@ export default function HomePage() {
       </section>
 
       <DifferentiatorSection />
+
       <CTASection
         eyebrow="Work With Us"
         title="Ready to Industrialize"
@@ -298,8 +265,8 @@ export default function HomePage() {
           { label: "Get In Touch", href: "/contact", variant: "primary" },
           { label: "Our Services", href: "/services", variant: "outline" },
         ]}
-        theme="dark"
-        agriElement={true}
+        theme="white"
+        agriElement={false}
       />
     </>
   );
