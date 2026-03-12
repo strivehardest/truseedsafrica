@@ -55,8 +55,16 @@ const pageStyles = `
     .commodities-grid { grid-template-columns: repeat(2, 1fr); }
     .home-about-grid { grid-template-columns: 1fr; gap: 48px; }
   }
+  @media (max-width: 600px) {
+    .commodities-grid { gap: 12px; }
+    .home-about-grid { gap: 28px; }
+  }
   @media (max-width: 480px) {
-    .commodities-grid { grid-template-columns: 1fr; }
+    .commodities-grid { grid-template-columns: 1fr; gap: 8px; }
+    .home-about-grid { gap: 16px; }
+    section, .commodities-grid > div, .home-about-grid > div {
+      padding: 24px 8vw !important;
+    }
   }
 `;
 
@@ -86,7 +94,7 @@ export default function HomePage() {
                     <div style={{ color: COLORS.gold, fontSize: 13, letterSpacing: 3, textTransform: "uppercase", fontWeight: 700, marginBottom: 10 }}>
                       Company Profile
                     </div>
-                    <h3 style={{ fontSize: 26, color: COLORS.green, fontWeight: 800, margin: 0, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>
+                    <h3 style={{ fontSize: "clamp(18px,4vw,26px)", color: COLORS.green, fontWeight: 800, margin: 0, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>
                       Full Company Profile
                     </h3>
                     <p style={{ color: COLORS.charcoalLight, fontSize: 16, margin: "18px 0 0", lineHeight: 1.6, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
@@ -140,7 +148,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Gold tag */}
-                <div style={{ position: "absolute", bottom: "-18px", left: "40px", background: COLORS.gold, padding: "14px 22px", borderRadius: "2px" }}>
+                <div style={{ position: "absolute", bottom: "-18px", left: "5vw", background: COLORS.gold, padding: "10px 12vw", borderRadius: "2px" }}>
                   <div style={{ color: COLORS.greenDark, fontWeight: 800, fontSize: "12px", fontFamily: "'Fira Sans', Arial, sans-serif", letterSpacing: "1px" }}>DANSOMAN, ACCRA · GHANA</div>
                 </div>
               </div>
@@ -218,10 +226,10 @@ export default function HomePage() {
                     <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}>
                       <Icon />
                     </div>
-                    <h3 style={{ color: COLORS.white, fontSize: "20px", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 700, margin: "0 0 12px" }}>
+                    <h3 style={{ color: COLORS.white, fontSize: "clamp(15px,4vw,20px)", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 700, margin: "0 0 12px" }}>
                       {c.name}
                     </h3>
-                    <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "13px", lineHeight: 1.7, margin: 0, fontFamily: "Arial, sans-serif" }}>
+                    <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(11px,3vw,13px)", lineHeight: 1.7, margin: 0, fontFamily: "Arial, sans-serif" }}>
                       {c.desc}
                     </p>
                   </div>
