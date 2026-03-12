@@ -1,5 +1,6 @@
-import Head from "next/head";
 "use client";
+
+import Head from "next/head";
 import AnimatedSection from "@/components/AnimatedSection";
 import { COLORS, SERVICES } from "@/lib/constants";
 import ServicesHeroSection from "@/components/sections/ServicesHeroSection";

@@ -7,11 +7,25 @@ import { COLORS } from "@/lib/constants";
 import BackToTopArrowWrapper from "@/components/BackToTopArrowWrapper";
 
 export const metadata: Metadata = {
-  title: "Tru Seeds Africa | Cultivating Wealth, Processing the Future",
+  title: "Tru Seeds Africa | Ghana Agribusiness, Industrial Processing & Consulting",
   description:
-    "Premier industrial agribusiness and strategic consultancy firm transforming African agriculture into a high-yield, industrial-grade economic engine.",
-  keywords:
-    "agribusiness, Ghana, cassava, oil palm, coconut, cocoa, Africa, industrial processing",
+    "Tru Seeds Africa is a premier industrial agribusiness and strategic consultancy firm transforming African agriculture into a high-yield, industrial-grade economic engine.",
+  keywords: [
+    "Tru Seeds Africa",
+    "agribusiness",
+    "Ghana",
+    "cassava",
+    "oil palm",
+    "coconut",
+    "cocoa",
+    "Africa",
+    "industrial processing",
+    "agriculture",
+    "consulting",
+    "value chain",
+    "circular economy"
+  ],
+  robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
 };
 
 export default function RootLayout({

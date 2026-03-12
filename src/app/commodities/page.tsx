@@ -1,5 +1,5 @@
-import Head from "next/head";
 "use client";
+import Head from "next/head";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/CTASection";
