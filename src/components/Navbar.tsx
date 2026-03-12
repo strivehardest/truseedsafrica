@@ -16,10 +16,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
-  // Prevent body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -30,10 +28,25 @@ export default function Navbar() {
   return (
     <>
       <style>{`
+        .navbar-root {
+          position: fixed;
+          top: 0; left: 0; right: 0;
+          z-index: 100;
+          transition: background 0.4s ease;
+          padding: 0 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 72px;
+          width: 100%;
+          box-sizing: border-box;
+        }
+
         .navbar-links { display: flex; }
         .navbar-hamburger { display: none !important; }
 
         @media (max-width: 900px) {
+          .navbar-root { padding: 0 16px; }
           .navbar-links { display: none !important; }
           .navbar-hamburger { display: flex !important; }
         }
@@ -91,15 +104,15 @@ export default function Navbar() {
         }
       `}</style>
 
-      <nav style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        background: navBg, transition: "background 0.4s ease",
-        padding: "0 40px", display: "flex", alignItems: "center",
-        justifyContent: "space-between", height: "72px",
-        boxShadow: scrolled || !isHome ? "0 2px 20px rgba(0,0,0,0.25)" : "none",
-      }}>
+      <nav
+        className="navbar-root"
+        style={{
+          background: navBg,
+          boxShadow: scrolled || !isHome ? "0 2px 20px rgba(0,0,0,0.25)" : "none",
+        }}
+      >
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
           <img
             src="/logo/logo.png"
             alt="Tru Seeds Africa"
@@ -128,14 +141,18 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger — mobile/tablet only */}
-        <button className="navbar-hamburger" aria-label="Open menu"
+        <button
+          className="navbar-hamburger"
+          aria-label="Open menu"
           onClick={() => setMenuOpen(true)}
           style={{
             background: "none", border: "none",
             flexDirection: "column", justifyContent: "center",
             alignItems: "center", gap: "6px",
             width: 44, height: 44, cursor: "pointer", padding: "8px",
-          }}>
+            flexShrink: 0,
+          }}
+        >
           <span className="hamburger-bar" />
           <span className="hamburger-bar" />
           <span className="hamburger-bar" />
@@ -147,7 +164,6 @@ export default function Navbar() {
         <button className="navbar-mobile-close" aria-label="Close menu"
           onClick={() => setMenuOpen(false)}>&times;</button>
 
-        {/* Brand */}
         <div style={{ marginBottom: "48px", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <img
             src="/logo/logo.png"
@@ -156,7 +172,6 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Links */}
         {NAV_LINKS.map(({ label, href }) => {
           const active = pathname === href;
           return (
