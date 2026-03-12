@@ -7,8 +7,16 @@ import { COLORS, NAV_LINKS } from "@/lib/constants";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 900);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -28,29 +36,6 @@ export default function Navbar() {
   return (
     <>
       <style>{`
-        .navbar-root {
-          position: fixed;
-          top: 0; left: 0; right: 0;
-          z-index: 100;
-          transition: background 0.4s ease;
-          padding: 0 40px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          height: 72px;
-          width: 100%;
-          box-sizing: border-box;
-        }
-
-        .navbar-links { display: flex; }
-        .navbar-hamburger { display: none !important; }
-
-        @media (max-width: 900px) {
-          .navbar-root { padding: 0 16px; }
-          .navbar-links { display: none !important; }
-          .navbar-hamburger { display: flex !important; }
-        }
-
         .navbar-mobile-overlay {
           display: none;
           position: fixed;
@@ -62,7 +47,6 @@ export default function Navbar() {
           justify-content: center;
         }
         .navbar-mobile-overlay.open { display: flex; }
-
         .navbar-mobile-link {
           display: block;
           width: 100%;
@@ -84,7 +68,6 @@ export default function Navbar() {
           color: #D4A017;
           background: rgba(255,255,255,0.04);
         }
-
         .navbar-mobile-close {
           position: absolute;
           top: 20px; right: 24px;
@@ -95,7 +78,6 @@ export default function Navbar() {
           transition: opacity 0.2s;
         }
         .navbar-mobile-close:hover { opacity: 1; }
-
         .hamburger-bar {
           width: 26px; height: 2.5px;
           background: #fff;
@@ -104,13 +86,21 @@ export default function Navbar() {
         }
       `}</style>
 
-      <nav
-        className="navbar-root"
-        style={{
-          background: navBg,
-          boxShadow: scrolled || !isHome ? "0 2px 20px rgba(0,0,0,0.25)" : "none",
-        }}
-      >
+      <nav style={{
+        position: "fixed",
+        top: 0, left: 0, right: 0,
+        zIndex: 100,
+        background: navBg,
+        transition: "background 0.4s ease",
+        padding: isMobile ? "0 16px" : "0 40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        height: "72px",
+        width: "100%",
+        boxSizing: "border-box",
+        boxShadow: scrolled || !isHome ? "0 2px 20px rgba(0,0,0,0.25)" : "none",
+      }}>
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
           <img
@@ -121,42 +111,46 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="navbar-links" style={{ gap: "32px" }}>
-          {NAV_LINKS.map(({ label, href }) => {
-            const active = pathname === href;
-            return (
-              <Link key={label} href={href} style={{
-                color: active ? COLORS.gold : COLORS.white,
-                textDecoration: "none", fontSize: "13px",
-                letterSpacing: "1.5px", textTransform: "uppercase",
-                fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600,
-                borderBottom: active ? `2px solid ${COLORS.gold}` : "2px solid transparent",
-                paddingBottom: "4px", transition: "color 0.2s, border-color 0.2s",
-              }}
-                onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.color = COLORS.gold; }}
-                onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.color = COLORS.white; }}
-              >{label}</Link>
-            );
-          })}
-        </div>
+        {!isMobile && (
+          <div style={{ display: "flex", gap: "32px" }}>
+            {NAV_LINKS.map(({ label, href }) => {
+              const active = pathname === href;
+              return (
+                <Link key={label} href={href} style={{
+                  color: active ? COLORS.gold : COLORS.white,
+                  textDecoration: "none", fontSize: "13px",
+                  letterSpacing: "1.5px", textTransform: "uppercase",
+                  fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600,
+                  borderBottom: active ? `2px solid ${COLORS.gold}` : "2px solid transparent",
+                  paddingBottom: "4px", transition: "color 0.2s, border-color 0.2s",
+                }}
+                  onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.color = COLORS.gold; }}
+                  onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.color = COLORS.white; }}
+                >{label}</Link>
+              );
+            })}
+          </div>
+        )}
 
-        {/* Hamburger — mobile/tablet only */}
-        <button
-          className="navbar-hamburger"
-          aria-label="Open menu"
-          onClick={() => setMenuOpen(true)}
-          style={{
-            background: "none", border: "none",
-            flexDirection: "column", justifyContent: "center",
-            alignItems: "center", gap: "6px",
-            width: 44, height: 44, cursor: "pointer", padding: "8px",
-            flexShrink: 0,
-          }}
-        >
-          <span className="hamburger-bar" />
-          <span className="hamburger-bar" />
-          <span className="hamburger-bar" />
-        </button>
+        {/* Hamburger — mobile only */}
+        {isMobile && (
+          <button
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(true)}
+            style={{
+              background: "none", border: "none",
+              display: "flex", flexDirection: "column",
+              justifyContent: "center", alignItems: "center",
+              gap: "6px", width: 44, height: 44,
+              cursor: "pointer", padding: "8px",
+              flexShrink: 0,
+            }}
+          >
+            <span className="hamburger-bar" />
+            <span className="hamburger-bar" />
+            <span className="hamburger-bar" />
+          </button>
+        )}
       </nav>
 
       {/* Mobile Full-Screen Overlay */}
