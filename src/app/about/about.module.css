@@ -1,0 +1,118 @@
+.hero {
+  background: linear-gradient(160deg, #1e5631 0%, #4caf50 100%);
+  padding: 120px 40px 90px;
+  text-align: center;
+  position: relative;
+}
+.hero-logo {
+  height: 32px;
+  width: auto;
+  margin-bottom: 22px;
+  display: inline-block;
+  object-fit: contain;
+}
+.hero-eyebrow {
+  color: #D4A017;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: 700;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  padding: 4px 18px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-size: clamp(38px, 6vw, 68px);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+  font-weight: 900;
+  margin: 0 0 22px;
+  letter-spacing: -2px;
+  line-height: 1.08;
+}
+.hero-desc {
+  color: rgba(255,255,255,0.82);
+  font-size: 21px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-weight: 500;
+}
+.section {
+  padding: 100px 40px;
+  background: #fff;
+}
+.section-offwhite {
+  background: #f8f8f8;
+  padding: 100px 40px;
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.leadership-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 48px 44px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+.card-avatar {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  background: linear-gradient(135deg, #4caf50, #1e5631);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4A017;
+  font-weight: 800;
+  font-size: 20px;
+  font-family: 'Georgia', serif;
+}
+@media (max-width: 900px) {
+  .section, .section-offwhite {
+    padding: 60px 16px;
+  }
+  .grid-2, .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .card {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 12px 48px;
+  }
+  .section, .section-offwhite {
+    padding: 32px 4vw;
+  }
+  .hero-title {
+    font-size: 28px;
+  }
+  .hero-desc {
+    font-size: 16px;
+  }
+}
