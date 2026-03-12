@@ -1,3 +1,4 @@
+import Head from "next/head";
 "use client";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -46,6 +47,11 @@ function CommodityImage({ name, alt, priority = false }: CommodityImageProps) {
 export default function CommoditiesPage() {
   return (
     <>
+      <Head>
+        <title>Commodities | Tru Seeds Africa</title>
+        <meta name="description" content="Explore the strategic agricultural commodities of Tru Seeds Africa, including cassava, oil palm, coconut, and cocoa. Discover how we drive agribusiness in Ghana and across Africa." />
+        <meta name="keywords" content="Tru Seeds Africa, commodities, Ghana, Africa, cassava, oil palm, coconut, cocoa, agribusiness, agriculture, industrial processing, value chain, West Africa" />
+      </Head>
       <style>{`
         @media (max-width: 900px) {
           .commodity-detail-section { padding: 60px 12px !important; }

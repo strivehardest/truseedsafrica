@@ -1,3 +1,4 @@
+import Head from "next/head";
 "use client";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -9,6 +10,11 @@ import styles from "./about.module.css";
 export default function AboutPage() {
   return (
     <>
+      <Head>
+        <title>About | Tru Seeds Africa</title>
+        <meta name="description" content="Learn about Tru Seeds Africa, a leading industrial agribusiness and consultancy based in Ghana, empowering Africa's agriculture for global competitiveness." />
+        <meta name="keywords" content="Tru Seeds Africa, about Tru Seeds Africa, agribusiness in Ghana, agribusiness in Africa, agribusiness, consultancy, company, team, mission, industrial agriculture, Accra, West Africa" />
+      </Head>
       {/* Page Hero */}
       <AnimatedSection>
         <section className={styles.hero}>

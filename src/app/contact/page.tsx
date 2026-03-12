@@ -1,3 +1,4 @@
+import Head from "next/head";
 "use client";
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -54,6 +55,11 @@ export default function ContactPage() {
 
   return (
     <>
+      <Head>
+        <title>Contact | Tru Seeds Africa</title>
+        <meta name="description" content="Contact Tru Seeds Africa for agribusiness consulting, partnership, and support. Reach out to our team in Accra, Ghana for all enquiries." />
+        <meta name="keywords" content="Tru Seeds Africa, contact, Ghana, Africa, get in touch, agribusiness, enquiry, support, consulting, partnership, Accra, West Africa, agriculture" />
+      </Head>
       <style>{`
         .cpage-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         .cpage-body-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }

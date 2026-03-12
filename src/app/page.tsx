@@ -1,3 +1,4 @@
+import Head from "next/head";
 "use client";
 import HeroSection from "@/components/sections/HeroSection";
 import CTASection from "@/components/CTASection";
@@ -102,6 +103,11 @@ const pageStyles = `
 export default function HomePage() {
   return (
     <>
+      <Head>
+        <title>Tru Seeds Africa | Cultivating Wealth, Processing the Future</title>
+        <meta name="description" content="Tru Seeds Africa is a premier industrial agribusiness and strategic consultancy firm transforming African agriculture into a high-yield, industrial-grade economic engine." />
+        <meta name="keywords" content="Tru Seeds Africa, agribusiness, Ghana, cassava, oil palm, coconut, cocoa, Africa, industrial processing, agriculture, consulting, value chain, circular economy" />
+      </Head>
       <style>{pageStyles}</style>
       <HeroSection />
 

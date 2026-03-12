@@ -1,3 +1,4 @@
+import Head from "next/head";
 "use client";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -9,6 +10,11 @@ import CTASection from "@/components/CTASection";
 export default function PillarsPage() {
   return (
     <>
+      <Head>
+        <title>Pillars | Tru Seeds Africa</title>
+        <meta name="description" content="Discover the six strategic pillars of Tru Seeds Africa—integrating cultivation, processing, mechanization, logistics, consulting, and policy for Africa's industrial future." />
+        <meta name="keywords" content="Tru Seeds Africa, pillars, strategic pillars, framework, industrialization, agriculture, Ghana, Africa, value chain, processing, consulting" />
+      </Head>
       {/* ── PAGE HERO ── */}
       <PillarsHeroSection />
 

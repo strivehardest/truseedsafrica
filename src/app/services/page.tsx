@@ -1,3 +1,4 @@
+import Head from "next/head";
 "use client";
 import AnimatedSection from "@/components/AnimatedSection";
 import { COLORS, SERVICES } from "@/lib/constants";
@@ -49,6 +50,11 @@ const keyServices = [
 export default function ServicesPage() {
   return (
     <>
+      <Head>
+        <title>Services | Tru Seeds Africa</title>
+        <meta name="description" content="Tru Seeds Africa offers strategic agribusiness consulting, outgrower scheme management, due diligence, and market intelligence services for Africa's agricultural sector." />
+        <meta name="keywords" content="Tru Seeds Africa, services, consulting, agribusiness, due diligence, market intelligence, Ghana, Africa, agriculture, value chain, industrial processing" />
+      </Head>
       <style>{`
         .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; align-items: start; }
         .key-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
