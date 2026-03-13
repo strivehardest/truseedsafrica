@@ -77,7 +77,9 @@ export default function Footer() {
   const contactItems = [
     { Icon: IconPin,     label: "Address", value: "#4 Terminalia Street,\nDansoman, Accra, Ghana" },
     { Icon: IconMailbox, label: "P.O. Box", value: "AN 16695, Accra North" },
-    { Icon: IconPhone,   label: "Phone",   value: "+233 244 434 333" },
+    { Icon: IconPhone,   label: "Phone (Ghana)",   value: "+233 244 434 333" },
+    { Icon: IconPhone,   label: "Phone (Ghana)",   value: "233248614242" },
+    { Icon: IconPhone,   label: "Phone (USA)",   value: "+1 (240) 217-0810" },
     { Icon: IconMail,    label: "Email",   value: "info@truseedsafrica.com" },
     { Icon: IconSocial,  label: "Social",  value: "@TruSeedsAfrica" },
   ];
@@ -231,7 +233,7 @@ export default function Footer() {
             <span style={colHeadStyle}>Contact Us</span>
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {contactItems.map(({ Icon, label, value }) => (
-                <div key={label} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
+                <div key={label + value} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                   <div style={{ marginTop: "3px", flexShrink: 0 }}><Icon /></div>
                   <div>
                     <div style={{ color: COLORS.gold, fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "Arial, sans-serif", fontWeight: 700, marginBottom: "3px" }}>{label}</div>

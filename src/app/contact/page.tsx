@@ -4,6 +4,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { COLORS } from "@/lib/constants";
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
+import { validateHeaderValue } from "http";
 
 const PhoneIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -330,10 +331,12 @@ export default function ContactPage() {
                     {[
                       { Icon: PinIcon, label: "Head Office", value: "#4 Terminalia Street, Dansoman, Accra, Ghana" },
                       { Icon: MailIcon, label: "Email", value: "info@truseedsafrica.com", href: "mailto:info@truseedsafrica.com" },
-                      { Icon: PhoneIcon, label: "Phone", value: "+233 244 434 333", href: "tel:+233244434333" },
+                      { Icon: PhoneIcon, label: "Phone (Ghana)", value: "+233 244 434 333", href: "tel:+233244434333" },
+                      { Icon: PhoneIcon, label: "Phone (Ghana)", value: "+233 248 614 242", href: "tel:+233248614242" },
+                      { Icon: PhoneIcon, label: "Phone (USA)", value: "+1 (240) 217 0810", href: "tel:+12402170810" },
                       { Icon: ClockIcon, label: "Office Hours", value: "Monday – Friday: 8:00 AM – 5:00 PM GMT" },
                     ].map(({ Icon, label, value, href }: { Icon: React.FC; label: string; value: string; href?: string }) => (
-                      <div key={label} className="info-row">
+                      <div key={label + value} className="info-row">
                         <div className="info-icon-wrap"><Icon /></div>
                         <div>
                           <div style={{ color: COLORS.gold, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 4 }}>{label}</div>
