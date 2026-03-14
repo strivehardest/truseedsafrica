@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { COLORS, NAV_LINKS } from "@/lib/constants";
 
@@ -169,11 +170,12 @@ export default function Navbar() {
       }}>
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
-          <img
-            src="/logo/logo.png"
+          <Image
+            src="/logo/logo.webp"
             alt="Tru Seeds Africa"
             width={130}
             height={52}
+            priority
             style={{ height: "52px", width: "auto", objectFit: "contain" }}
           />
         </Link>
@@ -223,8 +225,8 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}>&times;</button>
 
         <div style={{ marginBottom: "48px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <img
-            src="/logo/logo.png"
+          <Image
+            src="/logo/logo.webp"
             alt="Tru Seeds Africa"
             width={148}
             height={72}

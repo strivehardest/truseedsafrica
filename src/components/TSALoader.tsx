@@ -115,13 +115,9 @@ export default function TSALoader() {
           {/* Logo in centre */}
           <div className="tsa-spinner-dot">
             <img
-              src="/logo/logo.png"
+              src="/logo/logo.webp"
               alt="TSA"
-              style={{
-                width: 56,
-                height: 56,
-                objectFit: "contain",
-              }}
+              style={{ width: 56, height: 56, objectFit: "contain" }}
             />
           </div>
         </div>

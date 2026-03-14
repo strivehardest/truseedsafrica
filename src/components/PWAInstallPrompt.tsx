@@ -114,7 +114,7 @@ export default function PWAInstallPrompt() {
       <div className="pwa-prompt" role="dialog" aria-label="Install Tru Seeds Africa app">
         {/* App icon */}
         <div className="pwa-prompt-icon">
-          <img src="/logo/logo.png" alt="TSA" style={{ width: 40, height: 40, objectFit: "contain" }} />
+          <img src="/logo/logo.webp" alt="TSA" style={{ width: 40, height: 40, objectFit: "contain" }} />
         </div>
 
         {/* Text */}
