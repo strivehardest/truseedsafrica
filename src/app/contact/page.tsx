@@ -471,7 +471,7 @@ export default function ContactPage() {
                     <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 8 }}>Explore</div>
                     <div style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: 19, marginBottom: 10 }}>{label}</div>
                     <div style={{ color: COLORS.charcoalLight, fontSize: 15, lineHeight: 1.8, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{desc}</div>
-                    <div style={{ color: COLORS.green, fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginTop: 14 }}>Learn More →</div>
+                    <div style={{ color: COLORS.green, fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginTop: 14 }}>Explore {label} →</div>
                   </Link>
                 ))}
               </div>

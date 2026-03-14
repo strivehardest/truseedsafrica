@@ -286,8 +286,8 @@ export default function HeroSection() {
         </p>
 
         <div className="hero-btns">
-          <Link href="/services" className="hero-btn-primary">Our Services</Link>
-          <Link href="/about" className="hero-btn-secondary">Learn More</Link>
+          <Link href="/services" className="hero-btn-primary" aria-label="Explore Tru Seeds Africa services">Our Services</Link>
+          <Link href="/about" className="hero-btn-secondary" aria-label="Learn more about Tru Seeds Africa">Learn More About TSA</Link>
         </div>
 
         <div className="hero-stats">
