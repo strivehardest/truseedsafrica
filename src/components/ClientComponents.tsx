@@ -5,10 +5,12 @@ const TSALoader          = dynamic(() => import("@/components/TSALoader"),      
 const ReadingProgressBar = dynamic(() => import("@/components/ReadingProgressBar"), { ssr: false });
 const WhatsAppButton     = dynamic(() => import("@/components/WhatsAppButton"),     { ssr: false });
 const PWAInstallPrompt   = dynamic(() => import("@/components/PWAInstallPrompt"),   { ssr: false });
+const FontLoader         = dynamic(() => import("@/components/FontLoader"),         { ssr: false });
 
 export default function ClientComponents() {
   return (
     <>
+      <FontLoader />
       <TSALoader />
       <ReadingProgressBar />
       <WhatsAppButton />

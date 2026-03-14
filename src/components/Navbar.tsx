@@ -172,6 +172,8 @@ export default function Navbar() {
           <img
             src="/logo/logo.png"
             alt="Tru Seeds Africa"
+            width={130}
+            height={52}
             style={{ height: "52px", width: "auto", objectFit: "contain" }}
           />
         </Link>
@@ -224,6 +226,8 @@ export default function Navbar() {
           <img
             src="/logo/logo.png"
             alt="Tru Seeds Africa"
+            width={148}
+            height={72}
             style={{ height: "72px", width: "auto", objectFit: "contain" }}
           />
         </div>

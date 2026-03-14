@@ -54,7 +54,20 @@ const withPWA = withPWAInit({
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  turbopack: {},  // silence Turbopack/webpack conflict warning
+  turbopack: {},
+
+  // ── Image optimisation — serves WebP/AVIF, reduces transfer size ──
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [390, 640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 64, 96, 128, 256],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+  },
+
+  // ── Modern JS — eliminates legacy polyfills (saves ~14 KiB) ──
+  experimental: {
+    optimizePackageImports: ["@/components", "@/lib"],
+  },
 };
 
 export default withPWA(nextConfig);
