@@ -109,7 +109,7 @@ export default function TSALoader() {
       <div className={`tsa-loader-overlay${fadeOut ? " fade-out" : ""}`}>
 
         {/* Spinner ring */}
-        <div style={{ position: "relative", width: 90, height: 90 }}>
+        <div style={{ position: "relative", width: 100, height: 100 }}>
           <div className="tsa-spinner-outer" />
           <div className="tsa-spinner-inner" />
           {/* Logo in centre */}
@@ -118,10 +118,9 @@ export default function TSALoader() {
               src="/logo/logo.png"
               alt="TSA"
               style={{
-                width: 52,
-                height: 52,
+                width: 56,
+                height: 56,
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
               }}
             />
           </div>

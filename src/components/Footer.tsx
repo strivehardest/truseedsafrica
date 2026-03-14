@@ -337,10 +337,10 @@ export default function Footer() {
           <p style={{ color: "rgba(255,255,255,0.22)", fontSize: "12px", fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, letterSpacing: "2.5px", textTransform: "uppercase" }}>
             Cultivating Wealth &middot; Processing the Future
           </p>
-          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "17px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
+          <p style={{ color: "rgba(255,255,255,1.5)", fontSize: "17px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
             &copy; {new Date().getFullYear()} Tru Seeds Africa. All rights reserved. | Registered in Ghana.
           </p>
-          <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "18px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
+          <p style={{ color: "rgba(255,255,255,2.25)", fontSize: "18px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
             Website Development &amp; Design by{" "}
             <a
               href="https://www.celestialwebsolutions.net"
