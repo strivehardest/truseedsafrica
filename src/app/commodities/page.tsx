@@ -108,6 +108,7 @@ const styles = `
     grid-template-columns: 480px 1fr;
     min-height: 420px;
     transition: box-shadow 0.3s;
+    scroll-margin-top: 88px;
   }
   .comm-card:hover { box-shadow: 0 12px 48px rgba(0,0,0,0.13); }
   .comm-card.reverse { grid-template-columns: 1fr 480px; }
@@ -141,7 +142,7 @@ const styles = `
   }
 
   .comm-body {
-    padding: 48px 44px;
+    padding: 52px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,11 +158,12 @@ const styles = `
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 9px 14px;
+    padding: 10px 14px;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 14px;
     font-family: 'Fira Sans', Arial, sans-serif;
     font-weight: 600;
+    line-height: 1.4;
   }
 
   /* ── Zero waste ── */
@@ -214,7 +216,7 @@ export default function CommoditiesPage() {
 
       {/* ── INTRO BAND ── */}
       <div style={{ background: COLORS.green, padding: "28px 40px", textAlign: "center" }}>
-        <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "clamp(14px, 2vw, 16px)", fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, letterSpacing: 1, lineHeight: 1.6 }}>
+        <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "clamp(15px, 2vw, 18px)", fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, letterSpacing: 0.5, lineHeight: 1.8 }}>
           TSA operates across <strong style={{ color: COLORS.gold }}>4 strategic commodities</strong> — each selected for its industrial depth, circular economy potential, and global market demand.
         </p>
       </div>
@@ -230,7 +232,10 @@ export default function CommoditiesPage() {
 
             return (
               <AnimatedSection key={c.name} delay={i * 80}>
-                <div className={`comm-card${isReverse ? " reverse" : ""}`}>
+                <div
+                  id={c.name.toLowerCase().replace(/\s+/g, "-")}
+                  className={`comm-card${isReverse ? " reverse" : ""}`}
+                >
 
                   {/* Image — left for even, right for odd (CSS handles mobile stacking) */}
                   {!isReverse && (
@@ -251,7 +256,7 @@ export default function CommoditiesPage() {
                       <div style={{ width: 36, height: 36, borderRadius: "50%", background: accent.badge, display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <span style={{ color: "#fff", fontSize: 13, fontWeight: 800, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>0{i + 1}</span>
                       </div>
-                      <span style={{ color: accent.badge, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
+                      <span style={{ color: accent.badge, fontSize: 12, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
                         Strategic Commodity
                       </span>
                     </div>
@@ -263,25 +268,25 @@ export default function CommoditiesPage() {
                     {/* Accent line */}
                     <div style={{ width: 48, height: 3, background: accent.border, borderRadius: 2, marginBottom: 20 }} />
 
-                    <p style={{ color: "#555", fontSize: "clamp(14px, 1.8vw, 16px)", lineHeight: 1.9, margin: "0 0 20px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                    <p style={{ color: "#4A5F6A", fontSize: "clamp(15px, 1.8vw, 17px)", lineHeight: 1.95, margin: "0 0 20px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>
                       {c.detail}
                     </p>
 
                     {/* Highlighted desc */}
-                    <div style={{ background: "#fff", borderLeft: `4px solid ${accent.border}`, padding: "14px 18px", borderRadius: "0 4px 4px 0", marginBottom: 24 }}>
-                      <p style={{ color: COLORS.charcoal, fontSize: "clamp(13px, 1.6vw, 15px)", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600, margin: 0, lineHeight: 1.6 }}>
+                    <div style={{ background: "#fff", borderLeft: `4px solid ${accent.border}`, padding: "16px 20px", borderRadius: "0 4px 4px 0", marginBottom: 24 }}>
+                      <p style={{ color: COLORS.charcoal, fontSize: "clamp(14px, 1.6vw, 16px)", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600, margin: 0, lineHeight: 1.7 }}>
                         {c.desc}
                       </p>
                     </div>
 
                     {/* Products grid */}
                     <div style={{ marginBottom: 8 }}>
-                      <div style={{ color: accent.badge, fontSize: 10, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>
+                      <div style={{ color: accent.badge, fontSize: 11, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>
                         Key Outputs
                       </div>
                       <div className="comm-products">
                         {products.map(p => (
-                          <div key={p} className="comm-product-tag" style={{ background: "#fff", color: COLORS.charcoal }}>
+                          <div key={p} className="comm-product-tag" style={{ background: "#fff", color: COLORS.charcoal, fontSize: 14 }}>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={accent.border} strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
                             {p}
                           </div>
@@ -322,15 +327,15 @@ export default function CommoditiesPage() {
               </svg>
             </div>
 
-            <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 16 }}>
+            <div style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 16 }}>
               Our Philosophy
             </div>
-            <h2 style={{ color: COLORS.white, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(26px, 4vw, 44px)", marginBottom: 20, lineHeight: 1.1 }}>
+            <h2 style={{ color: COLORS.white, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(28px, 4vw, 46px)", marginBottom: 20, lineHeight: 1.1 }}>
               Zero-Waste{" "}
               <span style={{ color: COLORS.gold }}>Circular Bio-Economy</span>
             </h2>
             <div style={{ width: 60, height: 3, background: COLORS.gold, margin: "0 auto 28px", borderRadius: 2 }} />
-            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(15px, 2vw, 18px)", lineHeight: 1.9, fontFamily: "'Fira Sans', Arial, sans-serif", margin: "0 0 40px" }}>
+            <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "clamp(16px, 2vw, 19px)", lineHeight: 1.95, fontFamily: "'Fira Sans', Arial, sans-serif", margin: "0 0 40px" }}>
               TSA ensures every part of every crop is converted into measurable value. From cocoa pod potash to palm husk bio-fertilizers — our circular economy model guarantees zero agricultural waste across all four strategic commodities, driving sustainability and profitability simultaneously.
             </p>
 
@@ -344,7 +349,7 @@ export default function CommoditiesPage() {
               ].map(([num, label]) => (
                 <div key={label} style={{ flex: "1 0 120px", textAlign: "center", padding: "0 24px", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
                   <div style={{ color: COLORS.gold, fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1 }}>{num}</div>
-                  <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", marginTop: 6 }}>{label}</div>
+                  <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", marginTop: 8 }}>{label}</div>
                 </div>
               ))}
             </div>

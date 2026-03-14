@@ -7,6 +7,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import PillarCard from "@/components/ui/PillarCard";
 import { COLORS, PILLARS, COMMODITIES } from "@/lib/constants";
 import Link from "next/link";
+import HomeSectionDots from "@/components/HomeSectionDots";
 
 const CassavaIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -76,7 +77,10 @@ export default function HomePage() {
   return (
     <>
       <style>{pageStyles}</style>
-      <HeroSection />
+      <HomeSectionDots />
+      <div id="hero">
+        <HeroSection />
+      </div>
 
       {/* ── ABOUT SNAPSHOT ── */}
       <section id="about" className="section-pad" style={{ background: COLORS.offWhite }}>
@@ -95,7 +99,7 @@ export default function HomePage() {
               {/* Left: structured company overview card */}
               <div className="about-card">
                 <div className="about-card-header">
-                  <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>
+                  <div style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>
                     Company Overview
                   </div>
                   <h2 style={{ fontSize: "clamp(22px, 4vw, 34px)", color: "#fff", fontWeight: 800, margin: 0, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.2 }}>
@@ -104,7 +108,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="about-card-body">
-                  <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 1.8vw, 17px)", lineHeight: 1.85, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                  <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 1.8vw, 17px)", lineHeight: 1.9, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
                     TSA bridges the gap between primary agricultural production and global industrial demand — integrating Ag-Tech, circular economy principles, and strategic value-chain architecture to create lasting economic impact across Africa.
                   </p>
 
@@ -118,15 +122,15 @@ export default function HomePage() {
                       { label: "Framework", value: "6 Strategic Pillars" },
                     ].map(({ label, value }) => (
                       <div key={label} style={{ padding: "12px 16px", background: COLORS.offWhite, borderRadius: 4 }}>
-                        <div style={{ color: COLORS.gold, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 4 }}>{label}</div>
-                        <div style={{ color: COLORS.green, fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>{value}</div>
+                        <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 4 }}>{label}</div>
+                        <div style={{ color: COLORS.green, fontSize: "clamp(14px, 1.5vw, 16px)", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>{value}</div>
                       </div>
                     ))}
                   </div>
 
                   <div className="about-tag">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span style={{ color: COLORS.charcoal, fontSize: "clamp(12px, 1.5vw, 14px)", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600, letterSpacing: 1 }}>
+                    <span style={{ color: COLORS.charcoal, fontSize: "clamp(13px, 1.5vw, 15px)", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600, letterSpacing: 1 }}>
                       Beyond Farming — We Are Building Industries
                     </span>
                   </div>
@@ -136,7 +140,7 @@ export default function HomePage() {
                       background: COLORS.green, color: "#fff",
                       padding: "13px 28px", textDecoration: "none",
                       fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700,
-                      fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase",
+                      fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase",
                       borderRadius: "2px", display: "inline-block",
                     }}>
                       View Full Profile
@@ -145,7 +149,7 @@ export default function HomePage() {
                       border: `2px solid ${COLORS.green}`, color: COLORS.green,
                       padding: "11px 24px", textDecoration: "none",
                       fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700,
-                      fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase",
+                      fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase",
                       borderRadius: "2px", display: "inline-block",
                     }}>
                       Our Pillars
@@ -165,16 +169,16 @@ export default function HomePage() {
                   <blockquote style={{ color: COLORS.white, fontSize: "clamp(17px, 2.5vw, 23px)", fontStyle: "italic", lineHeight: 1.7, margin: "0 0 24px", fontFamily: "'Georgia', serif" }}>
                     Beyond Farming — We Are Building Industries.
                   </blockquote>
-                  <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "clamp(14px, 1.8vw, 16px)", lineHeight: 1.8, margin: "0 0 32px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                  <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "clamp(15px, 1.8vw, 17px)", lineHeight: 1.85, margin: "0 0 32px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>
                     Our vision is to position Africa as a global industrial agribusiness powerhouse — not just a supplier of raw materials, but a manufacturer, processor, and exporter of finished goods.
                   </p>
                   <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: "24px" }}>
-                    <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: "16px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>Ransford Aleke</div>
-                    <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", marginTop: "4px" }}>Founder & Chief Executive Officer</div>
+                    <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: "17px", fontFamily: "'Fira Sans', Arial, sans-serif" }}>Ransford Aleke</div>
+                    <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", marginTop: "4px" }}>Founder & Chief Executive Officer</div>
                   </div>
                 </div>
                 <div className="gold-tag">
-                  <div style={{ color: COLORS.greenDark, fontWeight: 800, fontSize: "12px", fontFamily: "'Fira Sans', Arial, sans-serif", letterSpacing: "1px" }}>DANSOMAN, ACCRA · GHANA</div>
+                  <div style={{ color: COLORS.greenDark, fontWeight: 800, fontSize: "13px", fontFamily: "'Fira Sans', Arial, sans-serif", letterSpacing: "1px" }}>DANSOMAN, ACCRA · GHANA</div>
                 </div>
               </div>
 
@@ -205,7 +209,7 @@ export default function HomePage() {
               border: `2px solid ${COLORS.green}`, color: COLORS.green,
               padding: "16px 44px", textDecoration: "none",
               fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700,
-              fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase",
+              fontSize: "14px", letterSpacing: "2px", textTransform: "uppercase",
               borderRadius: "2px", display: "inline-block", background: COLORS.white,
             }}>Explore All Pillars →</Link>
           </div>
@@ -213,7 +217,7 @@ export default function HomePage() {
       </section>
 
       {/* ── COMMODITIES ── */}
-      <section className="section-pad" style={{ background: COLORS.offWhite }}>
+      <section id="commodities" className="section-pad" style={{ background: COLORS.offWhite }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <AnimatedSection>
             <SectionHeader eyebrow="What We Grow" title="Strategic Commodities" />
@@ -235,8 +239,8 @@ export default function HomePage() {
                   >
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: COLORS.gold }} />
                     <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}><Icon /></div>
-                    <h3 style={{ color: COLORS.white, fontSize: "clamp(15px, 3vw, 20px)", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 700, margin: "0 0 12px" }}>{c.name}</h3>
-                    <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(13px, 2vw, 15px)", lineHeight: 1.75, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{c.desc}</p>
+                    <h3 style={{ color: COLORS.white, fontSize: "clamp(16px, 3vw, 21px)", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 700, margin: "0 0 12px" }}>{c.name}</h3>
+                    <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "clamp(14px, 2vw, 16px)", lineHeight: 1.8, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{c.desc}</p>
                   </div>
                 </AnimatedSection>
               );
@@ -247,7 +251,7 @@ export default function HomePage() {
               border: `2px solid ${COLORS.green}`, color: COLORS.green,
               padding: "14px 40px", textDecoration: "none",
               fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700,
-              fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase",
+              fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase",
               borderRadius: "2px", display: "inline-block",
             }}>View All Commodities →</Link>
           </div>

@@ -30,7 +30,7 @@ const aboutStyles = `
   }
   .about-hero-eyebrow {
     color: #D4A017;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 5px;
     text-transform: uppercase;
     font-family: 'Fira Sans', Arial, sans-serif;
@@ -51,7 +51,7 @@ const aboutStyles = `
     opacity: 0.5;
   }
   .about-hero-title {
-    font-size: clamp(36px, 7vw, 72px);
+    font-size: clamp(38px, 7vw, 72px);
     color: #fff;
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
     font-weight: 800;
@@ -75,7 +75,7 @@ const aboutStyles = `
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 12px;
+    font-size: 13px;
     color: rgba(255,255,255,0.35);
     font-family: 'Fira Sans', Arial, sans-serif;
     position: relative;
@@ -113,7 +113,7 @@ const aboutStyles = `
   .corp-row {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
     padding-bottom: 16px;
     margin-bottom: 16px;
     border-bottom: 1px solid #f0f0f0;
@@ -121,38 +121,40 @@ const aboutStyles = `
   .corp-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
   .mission-text {
-    font-size: clamp(15px, 1.8vw, 17px);
-    line-height: 1.9;
-    color: #555;
+    font-size: clamp(16px, 1.9vw, 18px);
+    line-height: 2.0;
+    color: #4A5F6A;
     font-family: 'Fira Sans', Arial, sans-serif;
-    margin: 0 0 20px;
+    margin: 0 0 22px;
   }
   .mission-highlight {
     background: #f8f5ec;
     border-left: 4px solid #D4A017;
-    padding: 20px 24px;
+    padding: 22px 26px;
     border-radius: 0 4px 4px 0;
     margin: 28px 0;
   }
 
   /* Values */
-  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
   .value-card {
     background: #fff;
     border-radius: 4px;
-    padding: 28px 24px;
+    padding: 34px 28px;
     border-top: 3px solid #D4A017;
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: transform 0.25s, box-shadow 0.25s;
   }
+  .value-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.09); }
   .value-icon {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     background: #f0f7f0;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   /* Leadership */
@@ -166,7 +168,7 @@ const aboutStyles = `
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 32px 36px;
+    padding: 44px 36px 40px;
     text-align: center;
   }
   .leader-card:hover {
@@ -216,7 +218,7 @@ const aboutStyles = `
     line-height: 1;
   }
   .leader-photo-placeholder small {
-    font-size: 9px;
+    font-size: 10px;
     color: rgba(255,255,255,0.3);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -228,14 +230,14 @@ const aboutStyles = `
     height: 8px;
     border-radius: 50%;
     background: #D4A017;
-    margin: 16px auto 20px;
+    margin: 18px auto 22px;
   }
   .leader-body { width: 100%; }
   .leader-divider {
     width: 48px;
     height: 2px;
     background: #D4A017;
-    margin: 14px auto 18px;
+    margin: 16px auto 20px;
   }
 
   @media (max-width: 900px) {
@@ -255,25 +257,22 @@ const aboutStyles = `
   }
 `;
 
-// SVG Icons for values
 const InnovationIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F6B1F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6B1F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="3"/>
     <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
   </svg>
 );
-
 const PartnershipIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F6B1F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6B1F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
     <circle cx="9" cy="7" r="4"/>
     <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
     <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
   </svg>
 );
-
 const IndustrializationIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F6B1F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6B1F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="7" width="20" height="14" rx="2"/>
     <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
     <line x1="12" y1="12" x2="12" y2="16"/>
@@ -343,8 +342,8 @@ export default function AboutPage() {
             <div className="about-grid-2">
               {/* Left */}
               <div>
-                <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 16 }}>Our Mission</div>
-                <h2 style={{ fontSize: "clamp(26px, 4vw, 42px)", color: COLORS.green, fontWeight: 800, margin: "0 0 28px", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.15 }}>
+                <div style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 16 }}>Our Mission</div>
+                <h2 style={{ fontSize: "clamp(30px, 4vw, 46px)", color: COLORS.green, fontWeight: 800, margin: "0 0 28px", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.15 }}>
                   Industrializing<br />African Agriculture
                 </h2>
                 <p className="mission-text">
@@ -354,14 +353,14 @@ export default function AboutPage() {
                   By integrating cutting-edge Ag-Tech, circular economy principles, and strategic value-chain architecture, TSA empowers African commodities — Cassava, Oil Palm, Coconut, and Cocoa — to compete on the global stage through high-value industrial transformation.
                 </p>
                 <div className="mission-highlight">
-                  <p style={{ color: COLORS.charcoal, fontSize: "clamp(14px, 1.8vw, 16px)", fontFamily: "'Georgia', serif", fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>
+                  <p style={{ color: COLORS.charcoal, fontSize: "clamp(16px, 1.9vw, 18px)", fontFamily: "'Georgia', serif", fontStyle: "italic", lineHeight: 1.85, margin: 0 }}>
                     "Beyond Farming — We Are Building Industries. Our vision is to position Africa not just as a supplier of raw materials, but as a manufacturer, processor, and exporter of finished goods."
                   </p>
-                  <div style={{ marginTop: 12, color: COLORS.gold, fontSize: 12, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, letterSpacing: 1 }}>— Ransford Aleke, CEO</div>
+                  <div style={{ marginTop: 14, color: COLORS.gold, fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, letterSpacing: 1 }}>— Ransford Aleke, CEO</div>
                 </div>
                 <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
-                  <Link href="/services" style={{ background: COLORS.green, color: "#fff", padding: "13px 28px", textDecoration: "none", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase", borderRadius: "2px" }}>Our Services</Link>
-                  <Link href="/pillars" style={{ border: `2px solid ${COLORS.green}`, color: COLORS.green, padding: "11px 24px", textDecoration: "none", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase", borderRadius: "2px" }}>6 Pillars</Link>
+                  <Link href="/services" style={{ background: COLORS.green, color: "#fff", padding: "13px 28px", textDecoration: "none", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", borderRadius: "2px" }}>Our Services</Link>
+                  <Link href="/pillars" style={{ border: `2px solid ${COLORS.green}`, color: COLORS.green, padding: "11px 24px", textDecoration: "none", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", borderRadius: "2px" }}>6 Pillars</Link>
                 </div>
               </div>
 
@@ -369,7 +368,7 @@ export default function AboutPage() {
               <div className="corp-card">
                 <div className="corp-card-header">
                   <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 10 }}>Corporate Overview</div>
-                  <h3 style={{ color: "#fff", fontSize: "clamp(18px, 3vw, 24px)", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: 0 }}>Company Profile</h3>
+                  <h3 style={{ color: "#fff", fontSize: "clamp(20px, 3vw, 26px)", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: 0 }}>Company Profile</h3>
                 </div>
                 <div className="corp-card-body">
                   {[
@@ -383,8 +382,8 @@ export default function AboutPage() {
                     ["Strategic Pillars", "6 Integrated Value-Chain Pillars"],
                   ].map(([label, value]) => (
                     <div key={label} className="corp-row">
-                      <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif" }}>{label}</span>
-                      <span style={{ color: COLORS.charcoal, fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.5 }}>{value}</span>
+                      <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif" }}>{label}</span>
+                      <span style={{ color: COLORS.charcoal, fontSize: 16, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.6 }}>{value}</span>
                     </div>
                   ))}
                 </div>
@@ -400,8 +399,8 @@ export default function AboutPage() {
                   <div className="value-icon">
                     <Icon />
                   </div>
-                  <h4 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: 17, margin: "0 0 10px" }}>{title}</h4>
-                  <p style={{ color: COLORS.charcoalLight, fontSize: 15, lineHeight: 1.75, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{desc}</p>
+                  <h4 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: 20, margin: "0 0 12px" }}>{title}</h4>
+                  <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 1.7vw, 17px)", lineHeight: 1.9, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{desc}</p>
                 </div>
               ))}
             </div>
@@ -424,8 +423,6 @@ export default function AboutPage() {
             {leaders.map((person, i) => (
               <AnimatedSection key={person.name} delay={i * 100}>
                 <div className="leader-card">
-
-                  {/* Circular photo with gold ring */}
                   <div className="leader-photo-ring">
                     <div className="leader-photo-inner">
                       <img
@@ -448,10 +445,10 @@ export default function AboutPage() {
                   <div className="leader-gold-dot" />
 
                   <div className="leader-body">
-                    <h3 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(18px, 3vw, 22px)", margin: "0 0 6px" }}>{person.name}</h3>
-                    <p style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, margin: 0 }}>{person.role}</p>
+                    <h3 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(22px, 3vw, 26px)", margin: "0 0 8px" }}>{person.name}</h3>
+                    <p style={{ color: COLORS.gold, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, margin: 0 }}>{person.role}</p>
                     <div className="leader-divider" />
-                    <p style={{ color: "#555", fontSize: "clamp(14px, 1.6vw, 16px)", lineHeight: 1.85, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0 }}>{person.desc}</p>
+                    <p style={{ color: "#4A5F6A", fontSize: "clamp(15px, 1.7vw, 17px)", lineHeight: 1.95, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0 }}>{person.desc}</p>
                   </div>
                 </div>
               </AnimatedSection>

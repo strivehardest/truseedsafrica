@@ -8,6 +8,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -20,9 +21,29 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // ── Scroll spy: homepage sections only ──
+  useEffect(() => {
+    if (!isHome) { setActiveSection(""); return; }
+
+    const sectionIds = ["about", "pillars"];
+    const onScroll = () => {
+      const scrollY = window.scrollY + 100;
+      let current = "";
+      sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      });
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
@@ -32,6 +53,13 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const navBg = isHome && !scrolled ? "transparent" : COLORS.green;
+
+  // Active link logic — page match OR scroll spy section match
+  const isLinkActive = (href: string) => {
+    if (href === "/" && isHome && activeSection === "") return true;
+    if (href === "/" && !isHome) return false;
+    return pathname === href;
+  };
 
   return (
     <>
@@ -83,6 +111,44 @@ export default function Navbar() {
           background: #fff;
           border-radius: 2px;
           display: block;
+          transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* ── Desktop nav link with animated underline ── */
+        .nav-desktop-link {
+          position: relative;
+          color: rgba(255,255,255,0.85);
+          text-decoration: none;
+          font-size: 13px;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          font-family: 'Fira Sans', Arial, sans-serif;
+          font-weight: 600;
+          padding-bottom: 5px;
+          transition: color 0.2s;
+        }
+        .nav-desktop-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: #D4A017;
+          border-radius: 1px;
+          transition: width 0.25s ease;
+        }
+        .nav-desktop-link:hover {
+          color: #D4A017;
+        }
+        .nav-desktop-link:hover::after {
+          width: 100%;
+        }
+        .nav-desktop-link.active {
+          color: #D4A017;
+        }
+        .nav-desktop-link.active::after {
+          width: 100%;
         }
       `}</style>
 
@@ -114,19 +180,15 @@ export default function Navbar() {
         {!isMobile && (
           <div style={{ display: "flex", gap: "32px" }}>
             {NAV_LINKS.map(({ label, href }) => {
-              const active = pathname === href;
+              const active = isLinkActive(href);
               return (
-                <Link key={label} href={href} style={{
-                  color: active ? COLORS.gold : COLORS.white,
-                  textDecoration: "none", fontSize: "13px",
-                  letterSpacing: "1.5px", textTransform: "uppercase",
-                  fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 600,
-                  borderBottom: active ? `2px solid ${COLORS.gold}` : "2px solid transparent",
-                  paddingBottom: "4px", transition: "color 0.2s, border-color 0.2s",
-                }}
-                  onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.color = COLORS.gold; }}
-                  onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.color = COLORS.white; }}
-                >{label}</Link>
+                <Link
+                  key={label}
+                  href={href}
+                  className={`nav-desktop-link${active ? " active" : ""}`}
+                >
+                  {label}
+                </Link>
               );
             })}
           </div>

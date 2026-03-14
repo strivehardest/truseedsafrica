@@ -4,7 +4,6 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { COLORS } from "@/lib/constants";
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
-import { validateHeaderValue } from "http";
 
 const PhoneIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -51,7 +50,7 @@ const faqs = [
   { q: "What services does Tru Seeds Africa offer?", a: "TSA provides industrial agribusiness consulting, mechanization-as-a-service, outgrower scheme management, global commodity trade facilitation, investment due diligence, and ESG strategy across our 6 Strategic Pillars." },
   { q: "Which commodities does TSA specialise in?", a: "Our four strategic commodities are Cassava, Oil Palm, Coconut, and Cocoa Pods — from cultivation and industrial processing through to global trade facilitation." },
   { q: "Does TSA operate outside Ghana?", a: "Yes. While headquartered in Accra, TSA serves clients across Africa and facilitates exports to global markets under the AfCFTA framework." },
-  { q: "How quickly will you respond to my enquiry?", a: "We typically respond within 24 business hours. For urgent matters, please call us directly on +233 244 434 333." },
+  { q: "How quickly will you respond to my enquiry?", a: "We typically respond within 24 business hours. For urgent matters, please call us directly on +233 244 434 333 or +233 248 614 242 (Ghana), or +1 (240) 217 0810 (USA)." },
   { q: "Can TSA help with investor readiness and due diligence?", a: "Absolutely. Our Strategic Agribusiness Consulting pillar covers full value-chain mapping, risk-profile assessment, and investment readiness blueprints for greenfield and existing agribusiness operations." },
 ];
 
@@ -146,7 +145,7 @@ const styles = `
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .field-group { display: flex; flex-direction: column; gap: 8px; }
   .field-label {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     color: #36454F;
     font-family: 'Fira Sans', Arial, sans-serif;
@@ -155,10 +154,10 @@ const styles = `
   }
   .field-input {
     width: 100%;
-    padding: 13px 16px;
+    padding: 14px 16px;
     border: 1.5px solid rgba(0,0,0,0.1);
     border-radius: 4px;
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'Fira Sans', Arial, sans-serif;
     color: #36454F;
     background: #fff;
@@ -178,7 +177,7 @@ const styles = `
     padding: 15px 40px;
     border: none;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -287,19 +286,19 @@ export default function ContactPage() {
         <div className="contact-hero-inner">
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginBottom: 20 }}>
             <div style={{ width: 40, height: 1.5, background: COLORS.gold, opacity: 0.6 }} />
-            <span style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>Contact Us</span>
+            <span style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>Contact Us</span>
             <div style={{ width: 40, height: 1.5, background: COLORS.gold, opacity: 0.6 }} />
           </div>
           <h1 style={{ fontSize: "clamp(38px, 6vw, 68px)", color: "#fff", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "0 0 20px", lineHeight: 1.05, letterSpacing: "-1.5px" }}>
             Get In <span style={{ color: COLORS.gold }}>Touch</span>
           </h1>
           <div style={{ width: 56, height: 3, background: COLORS.gold, margin: "0 auto 24px", borderRadius: 2 }} />
-          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "clamp(15px, 2vw, 18px)", lineHeight: 1.85, fontFamily: "'Fira Sans', Arial, sans-serif", margin: "0 0 40px" }}>
+          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "clamp(16px, 2vw, 19px)", lineHeight: 1.9, fontFamily: "'Fira Sans', Arial, sans-serif", margin: "0 0 40px" }}>
             Headquartered in Accra, Ghana — serving clients across Africa and the globe.<br />
             Reach out and let's discuss how TSA can drive your agribusiness forward.
           </p>
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, fontSize: 12, color: "rgba(255,255,255,0.35)", fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, fontSize: 13, color: "rgba(255,255,255,0.35)", fontFamily: "'Fira Sans', Arial, sans-serif" }}>
             <Link href="/" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Home</Link>
             <span>›</span>
             <span style={{ color: "rgba(255,255,255,0.6)" }}>Contact</span>
@@ -316,14 +315,14 @@ export default function ContactPage() {
             {/* ── LEFT: Info + Map ── */}
             <AnimatedSection>
               <div>
-                <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>Corporate Details</div>
+                <div style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>Corporate Details</div>
                 <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "0 0 28px", lineHeight: 1.15 }}>
                   How to Reach Us
                 </h2>
 
                 <div className="info-card">
                   <div className="info-card-header">
-                    <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, lineHeight: 1.6 }}>
+                    <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 15, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, lineHeight: 1.7 }}>
                       TSA is available Monday through Friday. For the fastest response, email us or use the contact form.
                     </p>
                   </div>
@@ -339,15 +338,15 @@ export default function ContactPage() {
                       <div key={label + value} className="info-row">
                         <div className="info-icon-wrap"><Icon /></div>
                         <div>
-                          <div style={{ color: COLORS.gold, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 4 }}>{label}</div>
+                          <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 4 }}>{label}</div>
                           {href ? (
-                            <a href={href} style={{ color: COLORS.charcoal, fontSize: 15, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.5, textDecoration: "none" }}
+                            <a href={href} style={{ color: COLORS.charcoal, fontSize: 16, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.5, textDecoration: "none" }}
                               onMouseEnter={e => (e.currentTarget.style.color = COLORS.green)}
                               onMouseLeave={e => (e.currentTarget.style.color = COLORS.charcoal)}>
                               {value}
                             </a>
                           ) : (
-                            <div style={{ color: COLORS.charcoal, fontSize: 15, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.5 }}>{value}</div>
+                            <div style={{ color: COLORS.charcoal, fontSize: 16, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.5 }}>{value}</div>
                           )}
                         </div>
                       </div>
@@ -376,11 +375,11 @@ export default function ContactPage() {
             <AnimatedSection delay={100}>
               <div className="form-card">
                 <div style={{ marginBottom: 36 }}>
-                  <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>Send a Message</div>
+                  <div style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12 }}>Send a Message</div>
                   <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "0 0 10px" }}>
                     Start the Conversation
                   </h2>
-                  <p style={{ color: COLORS.charcoalLight, fontSize: 15, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, lineHeight: 1.7 }}>
+                  <p style={{ color: COLORS.charcoalLight, fontSize: 16, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, lineHeight: 1.8 }}>
                     Fill out the form below and your message will be sent directly to <strong>info@truseedsafrica.com</strong>. We respond within 24 business hours.
                   </p>
                 </div>
@@ -446,7 +445,7 @@ export default function ContactPage() {
                       <SendIcon />
                       {sending ? "Opening Email..." : "Send Message"}
                     </button>
-                    <span style={{ color: "rgba(0,0,0,0.35)", fontSize: 13, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                    <span style={{ color: "rgba(0,0,0,0.4)", fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
                       Sends to info@truseedsafrica.com
                     </span>
                   </div>
@@ -458,7 +457,7 @@ export default function ContactPage() {
           {/* ── Quick links ── */}
           <AnimatedSection delay={150}>
             <div style={{ marginTop: 64 }}>
-              <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12, textAlign: "center" }}>Explore More</div>
+              <div style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 12, textAlign: "center" }}>Explore More</div>
               <h3 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(20px, 3vw, 28px)", textAlign: "center", margin: "0 0 32px" }}>
                 While You're Here
               </h3>
@@ -469,10 +468,10 @@ export default function ContactPage() {
                   { label: "About TSA", desc: "Learn more about our mission, leadership, and corporate profile.", href: "/about" },
                 ].map(({ label, desc, href }) => (
                   <Link key={label} href={href} className="quick-link-card">
-                    <div style={{ color: COLORS.gold, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 8 }}>Explore</div>
-                    <div style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: 18, marginBottom: 10 }}>{label}</div>
-                    <div style={{ color: COLORS.charcoalLight, fontSize: 14, lineHeight: 1.7, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{desc}</div>
-                    <div style={{ color: COLORS.green, fontSize: 13, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginTop: 14 }}>Learn More →</div>
+                    <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 8 }}>Explore</div>
+                    <div style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: 19, marginBottom: 10 }}>{label}</div>
+                    <div style={{ color: COLORS.charcoalLight, fontSize: 15, lineHeight: 1.8, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{desc}</div>
+                    <div style={{ color: COLORS.green, fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginTop: 14 }}>Learn More →</div>
                   </Link>
                 ))}
               </div>
@@ -486,11 +485,11 @@ export default function ContactPage() {
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <AnimatedSection>
             <div style={{ textAlign: "center", marginBottom: 52 }}>
-              <div style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 14 }}>Support</div>
+              <div style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700, marginBottom: 14 }}>Support</div>
               <h2 style={{ fontSize: "clamp(26px, 4vw, 42px)", color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "0 0 14px" }}>
                 Frequently Asked Questions
               </h2>
-              <p style={{ color: COLORS.charcoalLight, fontSize: 16, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.7, margin: 0 }}>
+              <p style={{ color: COLORS.charcoalLight, fontSize: 17, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.8, margin: 0 }}>
                 Can't find your answer? <a href="mailto:info@truseedsafrica.com" style={{ color: COLORS.green, fontWeight: 700 }}>Email us directly.</a>
               </p>
             </div>
@@ -502,12 +501,12 @@ export default function ContactPage() {
                 <div className="faq-item">
                   <button className="faq-btn" onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     style={{ color: openFaq === i ? COLORS.green : COLORS.charcoal, background: openFaq === i ? `${COLORS.green}06` : "#fff" }}>
-                    <span style={{ fontSize: 16, fontWeight: 700, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.4 }}>{faq.q}</span>
+                    <span style={{ fontSize: 17, fontWeight: 700, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.4 }}>{faq.q}</span>
                     <span style={{ color: COLORS.gold, flexShrink: 0 }}><ChevronIcon open={openFaq === i} /></span>
                   </button>
                   {openFaq === i && (
                     <div className="faq-answer">
-                      <p style={{ color: COLORS.charcoalLight, fontSize: 15, lineHeight: 1.9, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0 }}>{faq.a}</p>
+                      <p style={{ color: COLORS.charcoalLight, fontSize: 16, lineHeight: 1.95, fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0 }}>{faq.a}</p>
                     </div>
                   )}
                 </div>

@@ -188,7 +188,7 @@ export default function ServicesPage() {
       {/* ── INTRO BAND ── */}
       <div style={{ background: COLORS.greenDark, padding: "30px 40px" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(14px, 2vw, 17px)", fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, lineHeight: 1.8 }}>
+          <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "clamp(15px, 2vw, 18px)", fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, lineHeight: 1.85 }}>
             TSA delivers end-to-end agribusiness solutions across <strong style={{ color: COLORS.gold }}>6 integrated service pillars</strong> — from primary cultivation through industrial processing, mechanization, global trade, consulting, and policy advocacy.
           </p>
         </div>
@@ -199,13 +199,13 @@ export default function ServicesPage() {
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <AnimatedSection>
             <div style={{ textAlign: "center", marginBottom: 64 }}>
-              <span style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
+              <span style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
                 What Sets TSA Apart
               </span>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 46px)", color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "16px 0 16px", lineHeight: 1.1 }}>
                 Key Corporate Services
               </h2>
-              <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 2vw, 17px)", fontFamily: "'Fira Sans', Arial, sans-serif", maxWidth: 620, margin: "0 auto", lineHeight: 1.8 }}>
+              <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(16px, 2vw, 18px)", fontFamily: "'Fira Sans', Arial, sans-serif", maxWidth: 620, margin: "0 auto", lineHeight: 1.9 }}>
                 Each service is built around TSA's 6 Strategic Pillars — engineered for scale, industrial impact, and measurable returns.
               </p>
             </div>
@@ -225,10 +225,10 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  <h3 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(16px, 2vw, 19px)", margin: 0, lineHeight: 1.3 }}>
+                  <h3 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(17px, 2vw, 20px)", margin: 0, lineHeight: 1.3 }}>
                     {item.title}
                   </h3>
-                  <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(14px, 1.6vw, 16px)", lineHeight: 1.85, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                  <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 1.7vw, 17px)", lineHeight: 1.9, margin: 0, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
                     {item.desc}
                   </p>
 
@@ -251,7 +251,7 @@ export default function ServicesPage() {
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <AnimatedSection>
             <div style={{ textAlign: "center", marginBottom: 52 }}>
-              <span style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
+              <span style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
                 Our Approach
               </span>
               <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", color: "#fff", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "14px 0 0", lineHeight: 1.1 }}>
@@ -269,8 +269,8 @@ export default function ServicesPage() {
               <AnimatedSection key={step.num} delay={i * 80}>
                 <div className="process-step">
                   <div style={{ color: COLORS.gold, fontSize: "clamp(28px, 5vw, 42px)", fontWeight: 900, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1, marginBottom: 10 }}>{step.num}</div>
-                  <div style={{ color: "#fff", fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", marginBottom: 12 }}>{step.label}</div>
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(13px, 1.6vw, 15px)", fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.8, margin: 0 }}>{step.desc}</p>
+                  <div style={{ color: "#fff", fontSize: "clamp(17px, 2vw, 21px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", marginBottom: 12 }}>{step.label}</div>
+                  <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "clamp(14px, 1.6vw, 16px)", fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1.85, margin: 0 }}>{step.desc}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -283,13 +283,13 @@ export default function ServicesPage() {
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <AnimatedSection>
             <div style={{ textAlign: "center", marginBottom: 64 }}>
-              <span style={{ color: COLORS.gold, fontSize: 11, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
+              <span style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
                 Full Portfolio
               </span>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 46px)", color: "#fff", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "16px 0 16px", lineHeight: 1.1 }}>
                 Core Service <span style={{ color: COLORS.gold }}>Portfolio</span>
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "clamp(14px, 2vw, 16px)", fontFamily: "'Fira Sans', Arial, sans-serif", maxWidth: 560, margin: "0 auto", lineHeight: 1.8 }}>
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "clamp(15px, 2vw, 17px)", fontFamily: "'Fira Sans', Arial, sans-serif", maxWidth: 560, margin: "0 auto", lineHeight: 1.85 }}>
                 Six fully integrated service areas designed to move agribusinesses from raw production to global industrial output.
               </p>
             </div>
@@ -309,13 +309,13 @@ export default function ServicesPage() {
                     <div style={{ flex: 1, height: 1, background: "rgba(212,160,23,0.2)" }} />
                   </div>
 
-                  <h3 style={{ fontSize: "clamp(16px, 2vw, 19px)", fontWeight: 800, color: "#fff", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.3, margin: "0 0 20px" }}>
+                  <h3 style={{ fontSize: "clamp(17px, 2vw, 20px)", fontWeight: 800, color: "#fff", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1.3, margin: "0 0 20px" }}>
                     {s.title}
                   </h3>
 
-                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
+                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
                     {s.items.map((item, j) => (
-                      <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "clamp(13px, 1.6vw, 15px)", color: "rgba(255,255,255,0.65)", lineHeight: 1.75, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
+                      <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "clamp(14px, 1.6vw, 16px)", color: "rgba(255,255,255,0.72)", lineHeight: 1.8, fontFamily: "'Fira Sans', Arial, sans-serif" }}>
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: 5, flexShrink: 0 }}>
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
