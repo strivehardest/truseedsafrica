@@ -200,7 +200,12 @@ export default function HomePage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(320px, 100%), 1fr))", gap: "24px", alignItems: "start" }}>
             {PILLARS.map((p, i) => (
               <AnimatedSection key={p.num} delay={i * 60}>
-                <PillarCard {...p} index={i} />
+                <PillarCard
+  num={p.num}
+  title={p.title}
+  description={p.description}
+  icon={p.icon}
+/>
               </AnimatedSection>
             ))}
           </div>
