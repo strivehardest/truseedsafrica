@@ -341,21 +341,21 @@ export default function Footer() {
 
         {/* ── BOTTOM BAR ── */}
         <div className="footer-bottom">
-          <p style={{ color: "rgba(255,255,255,0.22)", fontSize: "12px", fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, letterSpacing: "2.5px", textTransform: "uppercase" }}>
+          <p style={{ color: "rgba(255,255,255,1.25)", fontSize: "15px", fontFamily: "'Fira Sans', Arial, sans-serif", margin: 0, letterSpacing: "2.5px", textTransform: "uppercase" }}>
             Cultivating Wealth &middot; Processing the Future
           </p>
-          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
+          <p style={{ color: "rgba(255,255,255,1.5)", fontSize: "16px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
             &copy; {new Date().getFullYear()} Tru Seeds Africa. All rights reserved. | Registered in Ghana.
           </p>
-          <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "14px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
+          <p style={{ color: "rgba(255,255,255,2.5)", fontSize: "18px", fontFamily: "'Fira Sans', Arial, Helvetica, sans-serif", margin: 0 }}>
             Website Development &amp; Design by{" "}
             <a
-              href="https://www.celestialwebsolutions.net"
+              href="https://celestialwebsolutions.net"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#FF6B00", textDecoration: "none", fontWeight: 700, transition: "color 0.2s" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#FF8C33")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#FF6B00")}
+              style={{ color: "#FFFFFF", textDecoration: "none", fontWeight: 400, transition: "color 0.2s" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#FFF8CD")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#FF8C33")}
             >
               Celestial Web Solutions
             </a>

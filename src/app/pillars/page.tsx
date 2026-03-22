@@ -6,6 +6,8 @@ import PillarsHeroSection from "@/components/sections/PillarsHeroSection";
 import CTASection from "@/components/CTASection";
 
 const pillarsStyles = `
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
+
   /* ── Intro band ── */
   .pillars-intro-band {
     background: #174F17;
@@ -140,7 +142,7 @@ export default function PillarsPage() {
               <span style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
                 Our Framework
               </span>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 46px)", color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "14px 0 16px", lineHeight: 1.1 }}>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 46px)", color: COLORS.green, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 800, margin: "14px 0 16px", lineHeight: 1.1 }}>
                 The 6 Strategic Pillars
               </h2>
               <p style={{ color: COLORS.charcoalLight, fontSize: "clamp(15px, 1.8vw, 17px)", fontFamily: "'Fira Sans', Arial, sans-serif", maxWidth: 580, margin: "0 auto", lineHeight: 1.85 }}>
@@ -151,9 +153,14 @@ export default function PillarsPage() {
           </AnimatedSection>
 
           <div className="pillars-grid">
-            {PILLARS.map((p, i) => (
-              <AnimatedSection key={p.num} delay={i * 80}>
-                <PillarCard {...p} index={i} />
+            {PILLARS.map((p) => (
+              <AnimatedSection key={p.num} delay={p.id * 80}>
+                <PillarCard
+                  num={p.num}
+                  title={p.title}
+                  description={p.description}
+                  icon={p.icon}
+                />
               </AnimatedSection>
             ))}
           </div>
@@ -167,18 +174,18 @@ export default function PillarsPage() {
             <span style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
               The Pipeline
             </span>
-            <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", color: "#fff", fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, margin: "14px 0 0", lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", color: "#fff", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 800, margin: "14px 0 0", lineHeight: 1.1 }}>
               From Seed to Global Market
             </h2>
           </div>
           <div className="pillars-flow-grid">
-            {flowSteps.map((step, i) => (
+            {flowSteps.map((step) => (
               <div key={step.num} className="pillars-flow-step">
                 <div className="pillars-flow-arrow">›</div>
                 <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(212,160,23,0.15)", border: "1.5px solid rgba(212,160,23,0.3)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 14px" }}>
-                  <span style={{ color: COLORS.gold, fontWeight: 900, fontSize: 14, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif" }}>{step.num}</span>
+                  <span style={{ color: COLORS.gold, fontWeight: 900, fontSize: 14, fontFamily: "'Fira Sans', Arial, sans-serif" }}>{step.num}</span>
                 </div>
-                <div style={{ color: "#fff", fontSize: "clamp(15px, 1.8vw, 17px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", marginBottom: 6 }}>{step.label}</div>
+                <div style={{ color: "#fff", fontSize: "clamp(15px, 1.8vw, 17px)", fontWeight: 800, fontFamily: "'Fira Sans', Arial, sans-serif", marginBottom: 6 }}>{step.label}</div>
                 <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "clamp(12px, 1.4vw, 13px)", fontFamily: "'Fira Sans', Arial, sans-serif", letterSpacing: 1, lineHeight: 1.5 }}>{step.sub}</div>
               </div>
             ))}
@@ -193,7 +200,7 @@ export default function PillarsPage() {
             <span style={{ color: COLORS.gold, fontSize: 12, letterSpacing: 5, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 700 }}>
               How It Works
             </span>
-            <h2 style={{ color: COLORS.green, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(26px, 3.5vw, 42px)", margin: "16px 0 24px", lineHeight: 1.1 }}>
+            <h2 style={{ color: COLORS.green, fontFamily: "'Fira Sans', Arial, sans-serif", fontWeight: 800, fontSize: "clamp(26px, 3.5vw, 42px)", margin: "16px 0 24px", lineHeight: 1.1 }}>
               All Six Pillars Work as One
             </h2>
             <div style={{ width: 56, height: 3, background: COLORS.gold, margin: "0 auto 28px", borderRadius: 2 }} />
@@ -225,7 +232,7 @@ export default function PillarsPage() {
                 ["AfCFTA", "Trade Framework"],
               ].map(([num, label]) => (
                 <div key={label} style={{ flex: "1 0 120px", textAlign: "center", padding: "0 28px", borderRight: "1px solid rgba(0,0,0,0.07)" }}>
-                  <div style={{ color: COLORS.green, fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 900, fontFamily: "'Plus Jakarta Sans', Arial, sans-serif", lineHeight: 1 }}>{num}</div>
+                  <div style={{ color: COLORS.green, fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 900, fontFamily: "'Fira Sans', Arial, sans-serif", lineHeight: 1 }}>{num}</div>
                   <div style={{ color: COLORS.charcoalLight, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Fira Sans', Arial, sans-serif", marginTop: 8 }}>{label}</div>
                 </div>
               ))}
